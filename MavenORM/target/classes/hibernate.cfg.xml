@@ -28,12 +28,15 @@
 
 		<!-- Echo all executed SQL to stdout -->
 		<property name="show_sql">true</property>
-		<property name="hbm2ddl.auto">validate</property> <!-- validate, create,update -->
+		<property name="hbm2ddl.auto">create</property> <!-- validate, create,update -->
 
 
 		<!-- Mapping to Entity -->
 		
 		<mapping class="com.model.Student" />
+		<mapping class="com.model.Address" />
+		<mapping  class="com.model.Employee"/>
+		<mapping  class="com.model.Phone"/>
 		
 		
 	</session-factory>

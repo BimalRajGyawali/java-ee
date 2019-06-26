@@ -11,14 +11,14 @@ public class RunStudent {
 
 	public static void main(String[] args) {
 
-		//addStudent();
-		
+		// addStudent();
+
 		delete();
-		
-		//getAll();
-		
-		//update();
-		
+
+		// getAll();
+
+		// update();
+
 		getAll();
 
 	}
@@ -55,62 +55,47 @@ public class RunStudent {
 	static void getAll() {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
-		
-		
-		Criteria criteria = session.createCriteria(Student.class); //persistence class
-		
+
+		Criteria criteria = session.createCriteria(Student.class); // persistence class
+
 		List<Student> students = criteria.list();
-		
-		for(Student student : students)
-		{
+
+		for (Student student : students) {
 			System.out.println(student);
 		}
-		
-		
-		
 
 	}
-	
-	static void update()
-	{
+
+	static void update() {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
 		session.beginTransaction();
 
-		
-		Student student = (Student)session.get(Student.class, 1); // 1 is id
-		
+		Student student = (Student) session.get(Student.class, 1); // 1 is id
+
 		student.setAddress("Lainchaur");
-		
-		
+
 		session.update(student);
 
 		session.getTransaction().commit();
-		
+
 		session.close();
-		
-		
-		
+
 	}
-	
-	
-	static void delete()
-	{
+
+	static void delete() {
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		
+
 		Student student = (Student) session.get(Student.class, 1);
-		
+
 		session.delete(student);
-		
+
 		session.beginTransaction().commit();
-		
+
 		session.close();
-		
-		
-		
-		
+
 	}
 
 }
