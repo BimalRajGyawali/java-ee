@@ -1,2 +1,3 @@
 # Java-EE
-This repository contains Java Web Applications.
+
+I created this repo when I was learning JSP and Servlets of then Java EE, currently known as Jakarta EE. 
